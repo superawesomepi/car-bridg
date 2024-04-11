@@ -23,6 +23,7 @@ public class OneLaneBridge extends Bridge {
 
     public void exit(Car car) throws InterruptedException {
         synchronized(waitlist) {
+            while(bridge.indexOf(car) != 0) waitlist.wait(); // if the car is not at the front of the bridge go back to waiting until another car exits
             bridge.remove(car);
             System.out.println("Bridge (dir=" + direction + "): " + bridge);
             waitlist.notifyAll();
