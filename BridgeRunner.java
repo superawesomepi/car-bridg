@@ -25,7 +25,7 @@ public class BridgeRunner {
 		// TODO - start then join the threads
 		for (int i = 0; i < numCars; i++) {
       		cars[i] = new Thread(new Car(i, oneLaneBridge));
-      		cars[i].run();
+      		cars[i].start();
     	}
 		for (int i = 0; i < numCars; i++) {
       		try {
