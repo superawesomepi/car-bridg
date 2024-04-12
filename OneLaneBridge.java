@@ -9,7 +9,7 @@ public class OneLaneBridge extends Bridge {
     private Object waitlist = new Object(); // condition variable
     public void arrive(Car car) throws InterruptedException {
         synchronized(waitlist) {
-            System.out.println("New car arrived: " + car.toString());
+            //System.out.println("New car arrived: " + car.toString());
             if(bridge.size() == 0) direction = car.getDirection(); // if the bridge is empty, set the direction to that of the arriving car
             while (car.getDirection() != direction || bridge.size() == limit) {
                 waitlist.wait();
